@@ -8,7 +8,7 @@ public class STool {
      * @param str
      * @return
      */
-    private static String arrayConverter(String str) {
+    public static String arrayConverter(String str) {
         return str.replaceAll("\\[", "{").replaceAll("\\]", "}");
     }
 
