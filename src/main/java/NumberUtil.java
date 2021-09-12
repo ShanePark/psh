@@ -1,5 +1,3 @@
-package com.tistory.shanepark.shaneutils;
-
 public class NumberUtil {
 
     /**
