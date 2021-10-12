@@ -57,6 +57,7 @@ public class STool {
     }
 
     public static int[] StringToIntArr(String str) {
+        str = str.replaceAll(" ","");
         String[] arr = str.substring(1, str.length() - 1).split(",");
         int[] intArr = new int[arr.length];
         for (int i = 0; i < intArr.length; i++) {
@@ -103,7 +104,7 @@ public class STool {
      * @param args
      */
     public static void main(String[] args) {
-        String str = "[[1,2],[3,4,5]]";
+        String str = "[[2, -1, 4], [-2, -1, 4], [0, -1, 1], [5, -8, -12], [5, 8, 12]]";
         System.out.println(Arrays.deepToString(convertToIntArray(str)));
     }
 
