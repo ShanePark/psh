@@ -28,7 +28,7 @@ dependencies {
 <dependency>
   <groupId>com.github.Shane-Park</groupId>
   <artifactId>shaneutils</artifactId>
-  <version>Tag</version>
+  <version>master-SNAPSHOT</version>
 </dependency>
 ```
 
