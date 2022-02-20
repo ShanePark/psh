@@ -1,8 +1,6 @@
 package com.tistory.shanepark.leetcode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * This class was written to help leetcode TreeNode problems testing.
@@ -26,6 +24,29 @@ public class TreeNode {
         this.val = val;
         this.left = left;
         this.right = right;
+    }
+
+    public TreeNode(Integer[] arr) {
+        List<TreeNode> list = new ArrayList<>();
+        this.val = arr[0];
+        for (Integer integer : arr) {
+            list.add(integer == null ? null : new TreeNode(integer));
+        }
+
+        if (arr.length > 1) {
+            this.left = list.get(1);
+        }
+        if (arr.length > 2) {
+            this.right = list.get(2);
+        }
+
+        for (int i = 3; i < arr.length; i++) {
+            if (i % 2 == 0) {
+                list.get((i - 1) / 2).right = list.get(i);
+            } else {
+                list.get((i - 1) / 2).left = list.get(i);
+            }
+        }
     }
 
     public int getMaxDepth() {
