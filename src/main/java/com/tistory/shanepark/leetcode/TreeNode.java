@@ -29,7 +29,7 @@ public class TreeNode {
     }
 
     public int getMaxDepth() {
-        return depthBFS(this, 1);
+        return depthDFS(this, 1);
     }
 
     public static TreeNode makeTree(Integer[] arr) {
@@ -72,10 +72,10 @@ public class TreeNode {
         }
     }
 
-    private int depthBFS(TreeNode node, int depth) {
+    private int depthDFS(TreeNode node, int depth) {
         if (node == null)
             return depth - 1;
-        return Math.max(depthBFS(node.left, depth + 1), depthBFS(node.right, depth + 1));
+        return Math.max(depthDFS(node.left, depth + 1), depthDFS(node.right, depth + 1));
     }
 
     private static void traverse(TreeNode node, Stack<Boolean> isLeftStack, int value) {
