@@ -40,6 +40,11 @@ class TreeNodeTest {
         assertThat(root.right.left.right.val).isEqualTo(12);
         assertThat(root.right.right.left.val).isEqualTo(13);
         assertThat(root.right.right.right.val).isEqualTo(14);
+
+        root = new TreeNode(new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15});
+        assertThat(root.getMaxDepth()).isEqualTo(5);
+        root.printTree();
+
     }
 
     @Test
