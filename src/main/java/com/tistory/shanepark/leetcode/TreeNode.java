@@ -52,7 +52,7 @@ public class TreeNode {
         return depthDFS(this, 1);
     }
 
-    public static TreeNode makeTree(Integer[] arr) {
+    public static TreeNode of(Integer[] arr) {
         if (arr.length == 0)
             return null;
         TreeNode node = new TreeNode(arr[0]);

@@ -10,7 +10,7 @@ class TreeNodeTest {
 
     @Test
     void getMaxDepth() {
-        Assertions.assertThat(TreeNode.makeTree(new Integer[]{10, 5, 15, 3, 7, null, 18}).getMaxDepth()).isEqualTo(3);
+        Assertions.assertThat(TreeNode.of(new Integer[]{10, 5, 15, 3, 7, null, 18}).getMaxDepth()).isEqualTo(3);
     }
 
     @Test
@@ -49,7 +49,7 @@ class TreeNodeTest {
 
     @Test
     void makeTree() {
-        TreeNode root = TreeNode.makeTree(new Integer[]{10, 5, 15, 3, 7, null, 18});
+        TreeNode root = TreeNode.of(new Integer[]{10, 5, 15, 3, 7, null, 18});
         assertThat(root.val).isEqualTo(10);
         assertThat(root.left.val).isEqualTo(5);
         assertThat(root.right.val).isEqualTo(15);
@@ -59,7 +59,7 @@ class TreeNodeTest {
         assertThat(root.right.right.val).isEqualTo(18);
 
 
-        root = TreeNode.makeTree(new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14});
+        root = TreeNode.of(new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14});
         assertThat(root.val).isEqualTo(0);
         assertThat(root.left.val).isEqualTo(1);
         assertThat(root.right.val).isEqualTo(2);
@@ -79,7 +79,7 @@ class TreeNodeTest {
 
     @Test
     void printTree() {
-        TreeNode root = TreeNode.makeTree(new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14});
+        TreeNode root = TreeNode.of(new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14});
         root.printTree();
     }
 
