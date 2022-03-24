@@ -37,7 +37,7 @@ public class STool {
     }
 
     private static List<String> deepStringToList(String str) {
-        String data = str.replaceAll("\\[", "{").replaceAll("\\]", "}");
+        String data = str.trim().replaceAll("\\[", "{").replaceAll("\\]", "}");
         data = data.substring(1, data.length() - 1);
         List<String> list = new ArrayList<>();
         int left = 0;
