@@ -53,11 +53,16 @@ public class STool {
     }
 
     public static String[] StringToStringArr(String str) {
+        if (str.length() == 2)
+            return new String[]{};
         return str.substring(1, str.length() - 1).split(",");
     }
 
     public static int[] StringToIntArr(String str) {
-        str = str.replaceAll(" ","");
+        str = str.replaceAll(" ", "");
+        if (str.length() == 2)
+            return new int[]{};
+
         String[] arr = str.substring(1, str.length() - 1).split(",");
         int[] intArr = new int[arr.length];
         for (int i = 0; i < intArr.length; i++) {
@@ -96,16 +101,6 @@ public class STool {
 
     public static void printDeepArray(Object[] o) {
         System.out.println(Arrays.deepToString(o));
-    }
-
-    /**
-     * for test
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        String str = "[[2, -1, 4], [-2, -1, 4], [0, -1, 1], [5, -8, -12], [5, 8, 12]]";
-        System.out.println(Arrays.deepToString(convertToIntArray(str)));
     }
 
 }
