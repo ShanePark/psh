@@ -36,6 +36,18 @@ public class STool {
         return result;
     }
 
+    public static List<List<Integer>> convertToIntList(String str) {
+        List<List<Integer>> list = new ArrayList<>();
+        for (int[] ints : convertToIntArray(str)) {
+            List<Integer> l = new ArrayList<>();
+            for (int n : ints) {
+                l.add(n);
+            }
+            list.add(l);
+        }
+        return list;
+    }
+
     private static List<String> deepStringToList(String str) {
         String data = str.trim().replaceAll("\\[", "{").replaceAll("\\]", "}");
         data = data.substring(1, data.length() - 1);
