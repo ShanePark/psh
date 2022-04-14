@@ -48,21 +48,14 @@ public class STool {
         return list;
     }
 
-    private static List<String> deepStringToList(String str) {
-        String data = str.trim()
-                .replaceAll("\\[", "{")
-                .replaceAll("\\]", "}")
-                .replaceAll("\n", "");
-        data = data.substring(1, data.length() - 1);
-        List<String> list = new ArrayList<>();
-        int left = 0;
-        for (int i = 0; i < data.length(); i++) {
-            char c = data.charAt(i);
-            if (c == '}') {
-                String arrStr = data.substring(left, i + 1);
-                list.add(arrStr);
-                left = (++i) + 1;
+    public static List<List<String>> convertToStringList(String str) {
+        List<List<String>> list = new ArrayList<>();
+        for (String[] strings : convertToStringArray(str)) {
+            List<String> l = new ArrayList<>();
+            for (String string : strings) {
+                l.add(string);
             }
+            list.add(l);
         }
         return list;
     }
@@ -70,7 +63,16 @@ public class STool {
     public static String[] StringToStringArr(String str) {
         if (str.length() == 2)
             return new String[]{};
-        return str.substring(1, str.length() - 1).split(",");
+        String[] arr = str.substring(1, str.length() - 1).split(",");
+        if (str.contains("\"")) {
+            for (int i = 0; i < arr.length; i++) {
+                String e = arr[i];
+                if (e.charAt(0) == '"' && e.charAt(e.length() - 1) == '"') {
+                    arr[i] = e.substring(1, e.length() - 1);
+                }
+            }
+        }
+        return arr;
     }
 
     public static int[] StringToIntArr(String str) {
@@ -116,6 +118,29 @@ public class STool {
 
     public static void printDeepArray(Object[] o) {
         System.out.println(Arrays.deepToString(o));
+    }
+
+    /****************************************************************
+     * private Methods
+     */
+
+    private static List<String> deepStringToList(String str) {
+        String data = str.trim()
+                .replaceAll("\\[", "{")
+                .replaceAll("\\]", "}")
+                .replaceAll("\n", "");
+        data = data.substring(1, data.length() - 1);
+        List<String> list = new ArrayList<>();
+        int left = 0;
+        for (int i = 0; i < data.length(); i++) {
+            char c = data.charAt(i);
+            if (c == '}') {
+                String arrStr = data.substring(left, i + 1);
+                list.add(arrStr);
+                left = (++i) + 1;
+            }
+        }
+        return list;
     }
 
 }

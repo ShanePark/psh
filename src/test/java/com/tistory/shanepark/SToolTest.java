@@ -12,6 +12,8 @@ class SToolTest {
     @Test
     void convertToStringArray() {
         assertThat(STool.convertToStringArray("[[1,2],[3],[3],[]])")).isDeepEqualTo(new String[][]{{"1", "2"}, {"3"}, {"3"}, {}});
+        String[][] arr = STool.convertToStringArray("[[\"London\",\"New York\"],[\"New York\",\"Lima\"],[\"Lima\",\"Sao Paulo\"]]");
+        assertThat(arr).isDeepEqualTo(new String[][]{{"London", "New York"}, {"New York", "Lima"}, {"Lima", "Sao Paulo"}});
     }
 
     @Test
@@ -32,5 +34,12 @@ class SToolTest {
         assertThat(STool.convertToIntList("[[0,1],[0,2],[2,5],[3,4],[4,2]]"))
                 .containsExactly(Arrays.asList(0, 1), Arrays.asList(0, 2), Arrays.asList(2, 5), Arrays.asList(3, 4), Arrays.asList(4, 2));
         assertThat(STool.convertToIntList("[[]]")).containsExactly(Collections.EMPTY_LIST);
+    }
+
+    @Test
+    void convertToStringList() {
+        assertThat(STool.convertToStringList("[[\"London\",\"New York\"],[\"New York\",\"Lima\"],[\"Lima\",\"Sao Paulo\"]]"))
+                .containsExactly(Arrays.asList("London", "New York"), Arrays.asList("New York", "Lima"), Arrays.asList("Lima", "Sao Paulo"));
+        assertThat(STool.convertToStringList("[[]]")).containsExactly(Collections.EMPTY_LIST);
     }
 }
