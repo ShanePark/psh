@@ -1,6 +1,9 @@
 package com.tistory.shanepark.leetcode;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Objects;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * This class was written to help leetcode TreeNode problems testing.
@@ -19,46 +22,17 @@ public class TreeNode {
         this.val = val;
     }
 
-    public TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-
-    public TreeNode(Integer[] arr) {
-        List<TreeNode> list = new ArrayList<>();
-        this.val = arr[0];
-        for (Integer integer : arr) {
-            list.add(integer == null ? null : new TreeNode(integer));
-        }
-
-        if (arr.length > 1) {
-            this.left = list.get(1);
-        }
-        if (arr.length > 2) {
-            this.right = list.get(2);
-        }
-
-        for (int i = 3; i < arr.length; i++) {
-            if (i % 2 == 0) {
-                list.get((i - 1) / 2).right = list.get(i);
-            } else {
-                list.get((i - 1) / 2).left = list.get(i);
-            }
-        }
-    }
-
     public int getMaxDepth() {
         return depthDFS(this, 1);
     }
 
-    public static TreeNode of(Integer[] arr) {
-        if (arr.length == 0)
+    public static TreeNode of(Integer... elements) {
+        if (elements == null || elements.length == 0 || elements[0] == null)
             return null;
-        TreeNode node = new TreeNode(arr[0]);
+        TreeNode node = new TreeNode(elements[0]);
 
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] == null)
+        for (int i = 1; i < elements.length; i++) {
+            if (elements[i] == null)
                 continue;
             Stack<Boolean> isLeftStack = new Stack<>();
             int cur = i;
@@ -69,10 +43,9 @@ public class TreeNode {
                 cur = head;
             }
 
-            traverse(node, isLeftStack, arr[i]);
+            traverse(node, isLeftStack, elements[i]);
         }
         return node;
-
     }
 
     public void printTree() {
@@ -122,4 +95,16 @@ public class TreeNode {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TreeNode treeNode = (TreeNode) o;
+        return val == treeNode.val && Objects.equals(left, treeNode.left) && Objects.equals(right, treeNode.right);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(val, left, right);
+    }
 }
