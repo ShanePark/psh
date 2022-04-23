@@ -16,7 +16,7 @@ public class ListNode {
     }
 
     static public ListNode of(int[] arr) {
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode();
         ListNode head = dummy;
         for (int i : arr) {
             head.next = new ListNode(i);
