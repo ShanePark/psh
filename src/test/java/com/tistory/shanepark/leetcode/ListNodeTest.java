@@ -1,11 +1,16 @@
 package com.tistory.shanepark.leetcode;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ListNodeTest {
+
+    @Test
+    public void testToString() {
+        String str = ListNode.of(1, 2, 3, 4, 5).toString();
+        System.out.println("str = " + str);
+    }
 
     @Test
     void of() {
@@ -13,6 +18,7 @@ class ListNodeTest {
         ListNode head = ListNode.of(arr);
         ListNode head2 = ListNode.of(1, 2, 3, 3, 4, 4, 5);
         assertThat(head).isEqualTo(head2);
+        assertThat(head).isEqualTo(ListNode.of(1, 2, 3, 3, 4, 4, 5));
 
         head.print();
 
