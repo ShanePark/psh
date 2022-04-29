@@ -15,7 +15,7 @@ public class ListNode {
         this.val = val;
     }
 
-    static public ListNode of(int[] arr) {
+    static public ListNode of(int... arr) {
         ListNode dummy = new ListNode();
         ListNode head = dummy;
         for (int i : arr) {
