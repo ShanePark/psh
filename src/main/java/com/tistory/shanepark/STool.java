@@ -26,6 +26,20 @@ public class STool {
         return result;
     }
 
+    /**
+     * @param str ex) [["X",".",".","X"],[".",".",".","X"],[".",".",".","X"]]
+     * @return array of char
+     */
+    public static char[][] convertToCharArray(String str) {
+        List<String> list = deepStringToList(str);
+        char[][] result = new char[list.size()][];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = StringToCharArr(list.get(i));
+        }
+
+        return result;
+    }
+
     public static int[][] convertToIntArray(String str) {
         List<String> list = deepStringToList(str);
         int[][] result = new int[list.size()][];
@@ -73,6 +87,15 @@ public class STool {
             }
         }
         return arr;
+    }
+
+    private static char[] StringToCharArr(String str) {
+        String[] stringArr = StringToStringArr(str);
+        char[] answer = new char[stringArr.length];
+        for (int i = 0; i < stringArr.length; i++) {
+            answer[i] = stringArr[i].charAt(0);
+        }
+        return answer;
     }
 
     public static int[] StringToIntArr(String str) {

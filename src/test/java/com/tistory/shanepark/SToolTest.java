@@ -1,6 +1,7 @@
 package com.tistory.shanepark;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -42,4 +43,21 @@ class SToolTest {
                 .containsExactly(Arrays.asList("London", "New York"), Arrays.asList("New York", "Lima"), Arrays.asList("Lima", "Sao Paulo"));
         assertThat(STool.convertToStringList("[[]]")).containsExactly(Collections.EMPTY_LIST);
     }
+
+    @Test
+    void stringToCharArr() {
+        String str = "[\"X\",\".\",\".\",\"X\"]";
+        char[] result = ReflectionTestUtils.invokeMethod(new STool(), "StringToCharArr", str);
+        assertThat(result).containsExactly('X', '.', '.', 'X');
+
+        char[] arr = ReflectionTestUtils.invokeMethod(new STool(), "StringToCharArr", "[]");
+        assertThat(arr).containsExactly();
+    }
+
+    @Test
+    public void convertToCharArray() {
+        assertThat(STool.convertToCharArray("[[\"X\",\".\",\".\",\"X\"],[\".\",\".\",\".\",\"X\"],[\".\",\".\",\".\",\"X\"]]"))
+                .isDeepEqualTo(new char[][]{{'X', '.', '.', 'X'}, {'.', '.', '.', 'X'}, {'.', '.', '.', 'X'}});
+    }
+
 }
