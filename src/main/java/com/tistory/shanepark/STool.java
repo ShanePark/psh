@@ -90,7 +90,7 @@ public class STool {
     }
 
     private static char[] StringToCharArr(String str) {
-        String[] stringArr = StringToStringArr(str);
+        String[] stringArr = StringToStringArr(str.trim());
         char[] answer = new char[stringArr.length];
         for (int i = 0; i < stringArr.length; i++) {
             answer[i] = stringArr[i].charAt(0);
