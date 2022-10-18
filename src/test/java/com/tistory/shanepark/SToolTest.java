@@ -12,6 +12,8 @@ class SToolTest {
 
     @Test
     void convertToStringArray() {
+        assertThat(STool.convertToStringArray("[[\"rardss\", \"123\"], [\"yyoom\", \"1234\"], [\"meosseugi\", \"1234\"]]"))
+                .isDeepEqualTo(new String[][]{{"rardss", "123"}, {"yyoom", "1234"}, {"meosseugi", "1234"}});
         assertThat(STool.convertToStringArray("[[1,2],[3],[3],[]])")).isDeepEqualTo(new String[][]{{"1", "2"}, {"3"}, {"3"}, {}});
         String[][] arr = STool.convertToStringArray("[[\"London\",\"New York\"],[\"New York\",\"Lima\"],[\"Lima\",\"Sao Paulo\"]]");
         assertThat(arr).isDeepEqualTo(new String[][]{{"London", "New York"}, {"New York", "Lima"}, {"Lima", "Sao Paulo"}});

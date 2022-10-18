@@ -75,12 +75,13 @@ public class STool {
     }
 
     public static String[] StringToStringArr(String str) {
+        str = str.trim();
         if (str.length() == 2)
             return new String[]{};
         String[] arr = str.substring(1, str.length() - 1).split(",");
         if (str.contains("\"")) {
             for (int i = 0; i < arr.length; i++) {
-                String e = arr[i];
+                String e = arr[i].trim();
                 if (e.charAt(0) == '"' && e.charAt(e.length() - 1) == '"') {
                     arr[i] = e.substring(1, e.length() - 1);
                 }
