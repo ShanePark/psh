@@ -16,7 +16,8 @@ public class TreeNode {
     public TreeNode left;
     public TreeNode right;
 
-    public TreeNode() {}
+    public TreeNode() {
+    }
 
     public TreeNode(int val) {
         this.val = val;
@@ -27,7 +28,36 @@ public class TreeNode {
     }
 
     public static TreeNode of(Integer... elements) {
-        if (elements == null || elements.length == 0 || elements[0] == null)
+        if (elements == null || elements.length == 0) {
+            return null;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode root = new TreeNode(elements[0]);
+        queue.add(root);
+
+        int i = 1;
+        while (!queue.isEmpty() && i < elements.length) {
+            TreeNode node = queue.poll();
+            if (elements[i] != null) {
+                node.left = new TreeNode(elements[i]);
+                queue.add(node.left);
+            }
+            i++;
+
+            if (i < elements.length && elements[i] != null) {
+                node.right = new TreeNode(elements[i]);
+                queue.add(node.right);
+            }
+            i++;
+        }
+
+        return root;
+    }
+
+    @Deprecated
+    public static TreeNode ofWithNull(Integer... elements) {
+        if (elements == null || elements.length == 0)
             return null;
         TreeNode node = new TreeNode(elements[0]);
 
