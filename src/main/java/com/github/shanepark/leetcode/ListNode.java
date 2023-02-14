@@ -1,20 +1,22 @@
-package com.tistory.shanepark.leetcode;
-
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+package com.github.shanepark.leetcode;
 
 import java.util.Objects;
 
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class ListNode {
 
     public int val;
     public ListNode next;
 
+    public ListNode() {
+    }
+
     public ListNode(int val) {
         this.val = val;
+    }
+
+    public ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
     }
 
     static public ListNode of(int... arr) {

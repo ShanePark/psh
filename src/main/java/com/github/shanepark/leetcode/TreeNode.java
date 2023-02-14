@@ -1,4 +1,4 @@
-package com.tistory.shanepark.leetcode;
+package com.github.shanepark.leetcode;
 
 import java.util.LinkedList;
 import java.util.Objects;
@@ -21,6 +21,12 @@ public class TreeNode {
 
     public TreeNode(int val) {
         this.val = val;
+    }
+
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
     }
 
     public int getMaxDepth() {
@@ -79,6 +85,16 @@ public class TreeNode {
     }
 
     public void printTree() {
+        class TreeNodeWithDepth {
+            TreeNode node;
+            int depth;
+
+            public TreeNodeWithDepth(TreeNode node, int depth) {
+                this.depth = depth;
+                this.node = node;
+            }
+        }
+
         Queue<TreeNodeWithDepth> q = new LinkedList<>();
         int maxDepth = this.getMaxDepth();
         q.offer(new TreeNodeWithDepth(this, 1));
@@ -113,16 +129,6 @@ public class TreeNode {
         }
 
         traverse(isLeft ? node.left : node.right, isLeftStack, value);
-    }
-
-    static class TreeNodeWithDepth {
-        TreeNode node;
-        int depth;
-
-        public TreeNodeWithDepth(TreeNode node, int depth) {
-            this.depth = depth;
-            this.node = node;
-        }
     }
 
     @Override

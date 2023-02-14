@@ -1,58 +1,41 @@
-package com.tistory.shanepark;
+package com.github.shanepark;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class STool {
+public class Ps {
 
-    /**
-     * convert [[1,2],[3,4]] style array into {{1,2},{3,4}}
-     *
-     * @param str
-     * @return
-     */
-    public static String arrayConverter(String str) {
-        return str.replaceAll("\\[", "{").replaceAll("\\]", "}");
-    }
-
-    public static String[][] convertToStringArray(String str) {
+    public static String[][] strArray(String str) {
         List<String> list = deepStringToList(str);
         String[][] result = new String[list.size()][];
         for (int i = 0; i < result.length; i++) {
             result[i] = StringToStringArr(list.get(i));
         }
-
         return result;
     }
 
-    /**
-     * @param str ex) [["X",".",".","X"],[".",".",".","X"],[".",".",".","X"]]
-     * @return array of char
-     */
-    public static char[][] convertToCharArray(String str) {
+    public static char[][] charArray(String str) {
         List<String> list = deepStringToList(str);
         char[][] result = new char[list.size()][];
         for (int i = 0; i < result.length; i++) {
-            result[i] = StringToCharArr(list.get(i));
+            result[i] = StringToCharArray(list.get(i));
         }
-
         return result;
     }
 
-    public static int[][] convertToIntArray(String str) {
+    public static int[][] intArray(String str) {
         List<String> list = deepStringToList(str);
         int[][] result = new int[list.size()][];
         for (int i = 0; i < result.length; i++) {
-            result[i] = StringToIntArr(list.get(i));
+            result[i] = StringToIntArray(list.get(i));
         }
-
         return result;
     }
 
-    public static List<List<Integer>> convertToIntList(String str) {
+    public static List<List<Integer>> intList(String str) {
         List<List<Integer>> list = new ArrayList<>();
-        for (int[] ints : convertToIntArray(str)) {
+        for (int[] ints : intArray(str)) {
             List<Integer> l = new ArrayList<>();
             for (int n : ints) {
                 l.add(n);
@@ -62,19 +45,19 @@ public class STool {
         return list;
     }
 
-    public static List<List<String>> convertToStringList(String str) {
+    public static List<List<String>> strList(String str) {
         List<List<String>> list = new ArrayList<>();
-        for (String[] strings : convertToStringArray(str)) {
-            List<String> l = new ArrayList<>();
-            for (String string : strings) {
-                l.add(string);
-            }
-            list.add(l);
+        for (String[] strings : strArray(str)) {
+            list.add(Arrays.asList(strings));
         }
         return list;
     }
 
-    public static String[] StringToStringArr(String str) {
+    /****************************************************************
+     * private Methods
+     */
+
+    private static String[] StringToStringArr(String str) {
         str = str.trim();
         if (str.length() == 2)
             return new String[]{};
@@ -90,7 +73,7 @@ public class STool {
         return arr;
     }
 
-    private static char[] StringToCharArr(String str) {
+    private static char[] StringToCharArray(String str) {
         String[] stringArr = StringToStringArr(str.trim());
         char[] answer = new char[stringArr.length];
         for (int i = 0; i < stringArr.length; i++) {
@@ -99,7 +82,7 @@ public class STool {
         return answer;
     }
 
-    public static int[] StringToIntArr(String str) {
+    private static int[] StringToIntArray(String str) {
         str = str.replaceAll(" ", "");
         if (str.length() == 2)
             return new int[]{};
@@ -112,46 +95,10 @@ public class STool {
         return intArr;
     }
 
-    public static void printArray(int[] arr) {
-        System.out.println(Arrays.toString(arr));
-    }
-
-    public static void printArray(long[] arr) {
-        System.out.println(Arrays.toString(arr));
-    }
-
-    public static void printArray(String[] arr) {
-        System.out.println(Arrays.toString(arr));
-    }
-
-    public static void printArray(char[] arr) {
-        System.out.println(Arrays.toString(arr));
-    }
-
-    public static void printArray(double[] arr) {
-        System.out.println(Arrays.toString(arr));
-    }
-
-    public static void printArray(boolean[] arr) {
-        System.out.println(Arrays.toString(arr));
-    }
-
-    public static void printArray(float[] arr) {
-        System.out.println(Arrays.toString(arr));
-    }
-
-    public static void printDeepArray(Object[] o) {
-        System.out.println(Arrays.deepToString(o));
-    }
-
-    /****************************************************************
-     * private Methods
-     */
-
     private static List<String> deepStringToList(String str) {
         String data = str.trim()
                 .replaceAll("\\[", "{")
-                .replaceAll("\\]", "}")
+                .replaceAll("]", "}")
                 .replaceAll("\n", "");
         data = data.substring(1, data.length() - 1);
         List<String> list = new ArrayList<>();

@@ -1,4 +1,4 @@
-package com.tistory.shanepark.leetcode;
+package com.github.shanepark.leetcode;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,11 +9,11 @@ class ListNodeTest {
     @Test
     public void testToString() {
         String str = ListNode.of(1, 2, 3, 4, 5).toString();
-        System.out.println("str = " + str);
+        assertThat(str).isEqualTo("ListNode{val=1, next=ListNode{val=2, next=ListNode{val=3, next=ListNode{val=4, next=ListNode{val=5, next=null}}}}}");
     }
 
     @Test
-    void of() {
+    void testOf() {
         int[] arr = {1, 2, 3, 3, 4, 4, 5};
         ListNode head = ListNode.of(arr);
         ListNode head2 = ListNode.of(1, 2, 3, 3, 4, 4, 5);
