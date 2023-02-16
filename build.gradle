@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.github.Shane-Park'
+group = 'com.github.shanepark'
 version = '1.0.0'
 description = 'psh'
 java.sourceCompatibility = JavaVersion.VERSION_1_8

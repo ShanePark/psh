@@ -68,7 +68,7 @@ allprojects {
 }
 dependencies {
     ...
-    implementation 'com.github.Shane-Park:psh:master-SNAPSHOT'
+    implementation 'com.github.shanepark:psh:master-SNAPSHOT'
 }
 ```
 
@@ -85,7 +85,7 @@ dependencies {
 
   <dependencies>
     <dependency>
-      <groupId>com.github.Shane-Park</groupId>
+      <groupId>com.github.shanepark</groupId>
       <artifactId>psh</artifactId>
       <version>master-SNAPSHOT</version>
     </dependency>
