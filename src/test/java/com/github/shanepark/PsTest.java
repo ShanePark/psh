@@ -1,5 +1,6 @@
 package com.github.shanepark;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -17,6 +18,14 @@ class PsTest {
                 .isDeepEqualTo(new String[][]{{"1", "2"}, {"3"}, {"3"}, {}});
         assertThat(Ps.strArray("[[\"London\",\"New York\"],[\"New York\",\"Lima\"],[\"Lima\",\"Sao Paulo\"]]"))
                 .isDeepEqualTo(new String[][]{{"London", "New York"}, {"New York", "Lima"}, {"Lima", "Sao Paulo"}});
+    }
+
+    @Test
+    void strArrayWrongFormat() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Ps.strArray("[[ardss\", \"123\"], [\"yyoom\", \"1234\"], [\"meosseugi\", \"1234\"]]"));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Ps.strArray("[[\"ardss, \"123\"], [\"yyoom\", \"1234\"], [\"meosseugi\", \"1234\"]]"));
     }
 
     @Test
