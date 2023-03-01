@@ -1,5 +1,6 @@
 package com.github.shanepark;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -10,6 +11,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PsTest {
 
     @Test
+    void constructor() {
+        Ps actual = new Ps();
+        assertThat(actual).isNotNull();
+        assertThat(actual).isInstanceOf(Ps.class);
+    }
+
+    @Test
     void strArrayTest() {
         assertThat(Ps.strArray("[[\"rardss\", \"123\"], [\"yyoom\", \"1234\"], [\"meosseugi\", \"1234\"]]"))
                 .isDeepEqualTo(new String[][]{{"rardss", "123"}, {"yyoom", "1234"}, {"meosseugi", "1234"}});
@@ -17,6 +25,14 @@ class PsTest {
                 .isDeepEqualTo(new String[][]{{"1", "2"}, {"3"}, {"3"}, {}});
         assertThat(Ps.strArray("[[\"London\",\"New York\"],[\"New York\",\"Lima\"],[\"Lima\",\"Sao Paulo\"]]"))
                 .isDeepEqualTo(new String[][]{{"London", "New York"}, {"New York", "Lima"}, {"Lima", "Sao Paulo"}});
+    }
+
+    @Test
+    void strArrayWrongFormat() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Ps.strArray("[[ardss\", \"123\"], [\"yyoom\", \"1234\"], [\"meosseugi\", \"1234\"]]"));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Ps.strArray("[[\"ardss, \"123\"], [\"yyoom\", \"1234\"], [\"meosseugi\", \"1234\"]]"));
     }
 
     @Test

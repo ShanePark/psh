@@ -7,6 +7,34 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ListNodeTest {
 
     @Test
+    void allArgsConstructor() {
+        ListNode listNode = new ListNode(0, null);
+        assertThat(listNode.val).isEqualTo(0);
+        assertThat(listNode.next).isNull();
+    }
+
+    @Test
+    void equalsTest() {
+        ListNode listNode1 = new ListNode(0, null);
+        ListNode listNode2 = new ListNode(0, null);
+        ListNode listNode3 = new ListNode(0, listNode2);
+        ListNode listNode4 = new ListNode(1);
+        assertThat(listNode1).isEqualTo(listNode1);
+        assertThat(listNode1).isEqualTo(listNode2);
+        assertThat(listNode1).isNotEqualTo(null);
+        assertThat(listNode1).isNotEqualTo(1);
+        assertThat(listNode1).isNotEqualTo(listNode3);
+        assertThat(listNode1).isNotEqualTo(listNode4);
+    }
+
+    @Test
+    void hashCodeTest() {
+        ListNode listNode1 = new ListNode(0, null);
+        ListNode listNode2 = new ListNode(0, null);
+        assertThat(listNode1.hashCode()).isEqualTo(listNode2.hashCode());
+    }
+
+    @Test
     public void testToString() {
         String str = ListNode.of(1, 2, 3, 4, 5).toString();
         assertThat(str).isEqualTo("ListNode{val=1, next=ListNode{val=2, next=ListNode{val=3, next=ListNode{val=4, next=ListNode{val=5, next=null}}}}}");

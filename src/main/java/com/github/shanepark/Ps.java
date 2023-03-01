@@ -64,10 +64,11 @@ public class Ps {
         String[] arr = str.substring(1, str.length() - 1).split(",");
         if (str.contains("\"")) {
             for (int i = 0; i < arr.length; i++) {
-                String e = arr[i].trim();
-                if (e.charAt(0) == '"' && e.charAt(e.length() - 1) == '"') {
-                    arr[i] = e.substring(1, e.length() - 1);
+                String element = arr[i].trim();
+                if (element.charAt(0) != '"' || element.charAt(element.length() - 1) != '"') {
+                    throw new IllegalArgumentException("The element must be surrounded by double quotes.");
                 }
+                arr[i] = element.substring(1, element.length() - 1);
             }
         }
         return arr;
