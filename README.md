@@ -6,6 +6,24 @@
 This helps you to solve problems on LeetCode, HackerRank, etc.  
 It doesn't suggest you any solution, but it helps you to make test cases and check the result easily.
 
+## Intallation
+### Gradle
+
+```groovy
+dependencies {
+    implementation 'io.github.shanepark:psh:1.1.0'
+}
+```
+### Maven
+
+```xml
+<dependency>
+  <groupId>io.github.shanepark</groupId>
+  <artifactId>psh</artifactId>
+  <version>1.1.0</version>
+</dependency>
+```
+
 ## Preview
 
 ![img](images/preview.png)
@@ -54,42 +72,4 @@ public void testToString(){
     System.out.println("str = "+str);
 }
 // str = ListNode{val=1, next=ListNode{val=2, next=ListNode{val=3, next=ListNode{val=4, next=ListNode{val=5, next=null}}}}}
-```
-
-## Intallation
-
-### Gradle
-
-```groovy
-allprojects {
-    repositories {
-        ...
-        maven { url 'https://jitpack.io' }
-    }
-}
-dependencies {
-    ...
-    implementation 'com.github.shanepark:psh:master-SNAPSHOT'
-}
-```
-
-### Maven
-
-```xml
-<project>
-  <repositories>
-    <repository>
-      <id>jitpack.io</id>
-      <url>https://jitpack.io</url>
-    </repository>
-  </repositories>
-
-  <dependencies>
-    <dependency>
-      <groupId>com.github.shanepark</groupId>
-      <artifactId>psh</artifactId>
-      <version>master-SNAPSHOT</version>
-    </dependency>
-  </dependencies>
-</project>
 ```
