@@ -1,12 +1,22 @@
+buildscript {
+    dependencies {
+        classpath 'io.github.gradle-nexus:publish-plugin:1.2.0'
+    }
+}
+
 plugins {
     id 'java'
-    id 'maven-publish'
     id 'jacoco'
 }
 
-group = 'io.github.shanepark'
-version = '1.1.0'
-description = 'PSH: Problem Solving Helper'
+apply plugin: 'io.github.gradle-nexus.publish-plugin'
+apply from: "$rootDir/scripts/publish-maven.gradle"
+apply from: 'publish.gradle'
+
+group = ext['PUBLISH_GROUP_ID']
+version = ext['PUBLISH_VERSION']
+description = ext['PUBLISH_DESCRIPTION']
+
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
@@ -18,14 +28,6 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
     testImplementation 'org.assertj:assertj-core:3.24.2'
-}
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from(components.java)
-        }
-    }
 }
 
 test {

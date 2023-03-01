@@ -1,0 +1,15 @@
+ext {
+    PUBLISH_GROUP_ID = 'io.github.shanepark'
+    PUBLISH_VERSION = '1.1.0'
+    PUBLISH_ARTIFACT_ID = 'psh'
+    PUBLISH_DESCRIPTION = 'PSH: Problem Solving Helper'
+    PUBLISH_URL = 'https://github.com/shanepark/psh'
+    PUBLISH_LICENSE_NAME = 'MIT License'
+    PUBLISH_LICENSE_URL = 'https://github.com/ShanePark/psh/blob/master/LICENSE'
+    PUBLISH_DEVELOPER_ID = 'shanepark'
+    PUBLISH_DEVELOPER_NAME = 'Shane Park'
+    PUBLISH_DEVELOPER_EMAIL = 'psh40963@naver.com'
+    PUBLISH_SCM_CONNECTION = 'scm:git:github.com/ShanePark/psh.git'
+    PUBLISH_SCM_DEVELOPER_CONNECTION = 'scm:git:ssh://github.com/ShanePark/psh.git'
+    PUBLISH_SCM_URL = 'https://github.com/ShanePark/psh'
+}
