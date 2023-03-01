@@ -1,6 +1,11 @@
 plugins {
     id 'java'
     id 'maven-publish'
+    id 'jacoco'
+}
+
+jacoco {
+    toolVersion = "0.8.8"
 }
 
 group = 'com.github.shanepark'
@@ -29,4 +34,13 @@ publishing {
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
 }
