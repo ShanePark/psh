@@ -11,6 +11,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PsTest {
 
     @Test
+    void constructor() {
+        Ps actual = new Ps();
+        assertThat(actual).isNotNull();
+        assertThat(actual).isInstanceOf(Ps.class);
+    }
+
+    @Test
     void strArrayTest() {
         assertThat(Ps.strArray("[[\"rardss\", \"123\"], [\"yyoom\", \"1234\"], [\"meosseugi\", \"1234\"]]"))
                 .isDeepEqualTo(new String[][]{{"rardss", "123"}, {"yyoom", "1234"}, {"meosseugi", "1234"}});
