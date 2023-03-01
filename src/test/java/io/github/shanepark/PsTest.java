@@ -1,4 +1,4 @@
-package com.github.shanepark;
+package io.github.shanepark;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

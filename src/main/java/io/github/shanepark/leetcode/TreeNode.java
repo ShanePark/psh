@@ -1,4 +1,4 @@
-package com.github.shanepark.leetcode;
+package io.github.shanepark.leetcode;
 
 import java.util.LinkedList;
 import java.util.Objects;

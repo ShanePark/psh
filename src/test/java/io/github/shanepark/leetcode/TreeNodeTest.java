@@ -1,4 +1,4 @@
-package com.github.shanepark.leetcode;
+package io.github.shanepark.leetcode;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.github.shanepark;
+package io.github.shanepark;
 
 import java.util.ArrayList;
 import java.util.Arrays;
