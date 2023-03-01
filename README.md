@@ -1,5 +1,6 @@
+[![Build](https://github.com/ShanePark/psh/actions/workflows/gradle.yml/badge.svg)](https://github.com/ShanePark/psh/actions/workflows/gradle.yml)
+[![Codecov branch](https://img.shields.io/codecov/c/github/shanepark/psh/master)](https://app.codecov.io/gh/ShanePark/psh)
 # PSH
-
 > Problem Solving Helper
 
 This helps you to solve problems on LeetCode, HackerRank, etc.  
