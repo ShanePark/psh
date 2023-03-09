@@ -33,7 +33,7 @@ public class TreeNode {
     }
 
     public static TreeNode of(Integer... elements) {
-        if (elements == null || elements.length == 0) {
+        if (elements.length == 0) {
             return null;
         }
 

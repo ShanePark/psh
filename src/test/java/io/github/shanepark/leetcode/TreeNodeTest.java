@@ -35,7 +35,7 @@ class TreeNodeTest {
 
     @Test
     void ofTestIrregular() {
-        TreeNode nullTree = TreeNode.of(null);
+        TreeNode nullTree = TreeNode.of(new Integer[]{});
         assertThat(nullTree).isNull();
         TreeNode emptyTree = TreeNode.of();
         assertThat(emptyTree).isNull();

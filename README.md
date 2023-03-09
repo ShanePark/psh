@@ -11,7 +11,7 @@ It doesn't suggest you any solution, but it helps you to make test cases and che
 
 ```groovy
 dependencies {
-    implementation 'io.github.shanepark:psh:1.1.0'
+    implementation 'io.github.shanepark:psh:1.2.0'
 }
 ```
 ### Maven
@@ -20,7 +20,7 @@ dependencies {
 <dependency>
   <groupId>io.github.shanepark</groupId>
   <artifactId>psh</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
