@@ -1,5 +1,6 @@
 [![Build](https://github.com/ShanePark/psh/actions/workflows/gradle.yml/badge.svg)](https://github.com/ShanePark/psh/actions/workflows/gradle.yml)
 [![Codecov branch](https://img.shields.io/codecov/c/github/shanepark/psh/master)](https://app.codecov.io/gh/ShanePark/psh)
+[![maven-central](https://maven-badges.herokuapp.com/maven-central/io.github.shanepark/psh/badge.svg)](https://mvnrepository.com/artifact/io.github.shanepark/psh)
 # PSH
 > Problem Solving Helper
 
