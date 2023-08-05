@@ -4,11 +4,6 @@ import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Queue;
 
-/**
- * This class was written to help leetcode TreeNode problems testing.
- * <p>
- * Author: Shane
- */
 public class TreeNode {
 
     public int val;
@@ -22,7 +17,7 @@ public class TreeNode {
         this.val = val;
     }
 
-    TreeNode(int val, TreeNode left, TreeNode right) {
+    public TreeNode(int val, TreeNode left, TreeNode right) {
         this.val = val;
         this.left = left;
         this.right = right;
